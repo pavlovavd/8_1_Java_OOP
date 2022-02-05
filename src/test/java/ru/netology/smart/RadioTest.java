@@ -114,6 +114,19 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void shouldNextCurrentStationBoundary() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(8);
+
+        radio.increaseCurrentStation();
+
+        int expected = 9;
+        int actual = radio.getCurrentStation();
+
+        assertEquals(expected, actual);
+    }
+
 
     //ST_PREV
     @Test
@@ -150,6 +163,19 @@ class RadioTest {
         radio.decreaseCurrentStation();
 
         int expected = 7;
+        int actual = radio.getCurrentStation();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldPrevCurrentStationBoundary() {
+        Radio radio = new Radio();
+        radio.setCurrentStation(1);
+
+        radio.decreaseCurrentStation();
+
+        int expected = 0;
         int actual = radio.getCurrentStation();
 
         assertEquals(expected, actual);

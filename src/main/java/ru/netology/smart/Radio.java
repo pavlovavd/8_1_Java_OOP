@@ -22,16 +22,17 @@ public class Radio {
         if (currentStation < 9) {
             currentStation = currentStation + 1;
         }
-        if (currentStation == 9) {
+       else {
             this.currentStation = 0;
         }
+
     }
 
     public void decreaseCurrentStation() {
         if (currentStation > 0) {
             currentStation = currentStation - 1;
         }
-        if (currentStation == 0) {
+        else {
             this.currentStation = 9;
         }
     }

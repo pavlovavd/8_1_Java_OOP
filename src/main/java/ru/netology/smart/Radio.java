@@ -9,7 +9,7 @@ public class Radio {
     }
 
     public Radio(int numberStation) {
-        this.numberStation = numberStation - 1;
+        this.numberStation = numberStation;
     }
 
     public int getCurrentStation() {
@@ -24,7 +24,7 @@ public class Radio {
         if (currentStation < 0) {
             return;
         }
-        if (currentStation > 10) {
+        if (currentStation > numberStation) {
             return;
         }
         this.currentStation = currentStation;

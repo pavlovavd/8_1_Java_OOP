@@ -1,6 +1,5 @@
 package ru.netology.smart;
 
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,10 +7,19 @@ import static org.junit.jupiter.api.Assertions.*;
 class RadioTest {
 
     @Test
-    public void shouldUseRadio () {
-        Radio radio = new Radio(5);
-        assertEquals(4, radio.getNumberStation());
+    public void shouldUseRadioUpperLimit() {
+        Radio radio = new Radio(20);
+        radio.setCurrentStation(15);
+        assertEquals(15, radio.getCurrentStation());
+
     }
+
+    @Test
+    public void shouldUseRadioLowerLimit() {
+        Radio radio = new Radio(5);
+        assertEquals(5, radio.getNumberStation());
+    }
+
     @Test
     public void shouldUseNoArgsRadio() {
         Radio radio = new Radio();
@@ -155,11 +163,11 @@ class RadioTest {
     @Test
     public void shouldPrevCurrentStationInsideBound() {
         Radio radio = new Radio();
-        radio.setCurrentStation(9);
+        radio.setCurrentStation(99);
 
         radio.decreaseCurrentStation();
 
-        int expected = 8;
+        int expected = 10;
         int actual = radio.getCurrentStation();
 
         assertEquals(expected, actual);
@@ -260,6 +268,7 @@ class RadioTest {
         assertEquals(expected, actual);
 
     }
+
     @Test
     public void shouldVolumeUpperBound() {
         Radio radio = new Radio();

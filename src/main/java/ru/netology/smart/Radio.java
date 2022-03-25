@@ -3,23 +3,35 @@ package ru.netology.smart;
 public class Radio {
     private int currentStation;
     private int currentVolume;
+    private int numberStation = 10;
+
+    public Radio() {
+    }
+
+    public Radio(int numberStation) {
+        this.numberStation = numberStation;
+    }
 
     public int getCurrentStation() {
         return currentStation;
+    }
+
+    public int getNumberStation() {
+        return numberStation;
     }
 
     public void setCurrentStation(int currentStation) {
         if (currentStation < 0) {
             return;
         }
-        if (currentStation > 9) {
+        if (currentStation > numberStation - 1) {
             return;
         }
         this.currentStation = currentStation;
     }
 
     public void increaseCurrentStation() {
-        if (currentStation < 9) {
+        if (currentStation < numberStation - 1) {
             currentStation = currentStation + 1;
         } else {
             this.currentStation = 0;
@@ -30,7 +42,7 @@ public class Radio {
         if (currentStation > 0) {
             currentStation = currentStation - 1;
         } else {
-            this.currentStation = 9;
+            this.currentStation = numberStation - 1;
         }
     }
 
@@ -42,14 +54,14 @@ public class Radio {
         if (currentVolume < 0) {
             return;
         }
-        if (currentVolume > 10) {
+        if (currentVolume > 100) {
             return;
         }
         this.currentVolume = currentVolume;
     }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
     }

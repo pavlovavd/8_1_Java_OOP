@@ -24,14 +24,14 @@ public class Radio {
         if (currentStation < 0) {
             return;
         }
-        if (currentStation > numberStation) {
+        if (currentStation > numberStation - 1) {
             return;
         }
         this.currentStation = currentStation;
     }
 
     public void increaseCurrentStation() {
-        if (currentStation < 10) {
+        if (currentStation < numberStation - 1) {
             currentStation = currentStation + 1;
         } else {
             this.currentStation = 0;
@@ -42,7 +42,7 @@ public class Radio {
         if (currentStation > 0) {
             currentStation = currentStation - 1;
         } else {
-            this.currentStation = 10;
+            this.currentStation = numberStation - 1;
         }
     }
 
